@@ -43,3 +43,8 @@ EXPOSE 1313
 
 ENTRYPOINT ["hugo"]
 CMD ["--help"]
+
+
+RUN mkdir /home/tmp && cd /home/tmp && wget https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+RUN cd /home/tmp && rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+ENV PATH "$PATH:/usr/local/go/bin"
